@@ -11,6 +11,10 @@ Head on over to duplicate-repo/README.md for that process
 
 Now that you've duplicated this repository including all the issues, you can start working through the learning tasks in the issues.
 
+Start with milestone #1 (they get increasingly more complex)
+
+![CleanShot 2025-02-15 at 12 35 42](https://github.com/user-attachments/assets/ab8206f0-ba8e-4347-a14b-46fd46470326)
+
 The rules:
 - **Recognition of prior learning**: If you've already got a public repo where you have demonstrated a skill, you don't have to repeat it. Just add a comment to the issue pointing to the existing code you've written. (But make sure you fully understand it)
 - **Use of AI tools**: It's ok to use AI tools to help you but don't blindly copy and paste code without testing it. The point of doing this is so you understand these concepts. If you don't fully grasp the concepts, you'll be out of your depth when you get access to the Focus Bear codebase.
