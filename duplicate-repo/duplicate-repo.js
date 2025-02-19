@@ -22,8 +22,32 @@ const GITHUB_API = 'https://api.github.com/repos';
 // 🚨 **Milestones to exclude**
 const MILESTONES_TO_EXCLUDE = [
   "7. Redux",
-  "5. React fundamentals"
+  "5. React fundamentals",
+  "3. Learn git",
+  "4. Clean Code",
+  "5. Introduction to Automated E2E Testing",
+  "6. Writing & Running E2E Tests",
+  "7. Debugging/Troubleshooting Tests",
+  "8. Jest for unit tests",
+  "6. Debugging"
 ];
+
+// 🚀 **Milestones to include** (Set to ['*'] to include all except exclusions)
+const MILESTONES_TO_INCLUDE = ['0. Company policies', '0. Working in an agile team']; // Example: ['Milestone A', 'Milestone B']
+
+async function fetchAllIssues(repo) {
+  let issues = [];
+  for (const state of ["open", "closed"]) {
+      let page = 1;
+      while (true) {
+          const { data, headers } = await axios.get(`${GITHUB_API}/${repo}/issues?state=${state}&per_page=100&page=${page}`, HEADERS);
+          issues = issues.concat(data);
+          if (!headers.link || !headers.link.includes('rel="next"')) break;
+          page++;
+        }
+    }
+  return issues;
+}
 
 // Helper function to fetch paginated results
 async function fetchAll(url) {
@@ -42,7 +66,7 @@ async function fetchAll(url) {
   return results;
 }
 
-// Fetch all milestones, excluding unwanted ones
+// Fetch all milestones, applying include/exclude filters
 async function copyMilestones() {
   try {
     const existingMilestones = await fetchAll(`${GITHUB_API}/${DEST_REPO}/milestones`);
@@ -54,6 +78,11 @@ async function copyMilestones() {
     for (const milestone of sourceMilestones) {
       if (MILESTONES_TO_EXCLUDE.includes(milestone.title)) {
         console.log(`🚫 Skipping excluded milestone: ${milestone.title}`);
+        continue;
+      }
+
+      if (MILESTONES_TO_INCLUDE[0] !== '*' && !MILESTONES_TO_INCLUDE.includes(milestone.title)) {
+        console.log(`🚫 Skipping non-included milestone: ${milestone.title}`);
         continue;
       }
 
@@ -82,45 +111,24 @@ async function copyMilestones() {
   }
 }
 
-// Fetch all issues (open and closed)
-async function fetchAllIssues(repo) {
-  let issues = [];
-  for (const state of ["open", "closed"]) {
-    let page = 1;
-    while (true) {
-      const { data, headers } = await axios.get(`${GITHUB_API}/${repo}/issues?state=${state}&per_page=100&page=${page}`, HEADERS);
-      issues = issues.concat(data);
-      if (!headers.link || !headers.link.includes('rel="next"')) break;
-      page++;
-    }
-  }
-  return issues;
-}
-
+// Fetch and copy issues
 async function copyIssues(milestoneMap) {
   try {
+    const sourceIssues = await fetchAllIssues(SOURCE_REPO);
     const existingIssues = await fetchAllIssues(DEST_REPO);
     const existingIssueMap = new Map(existingIssues.map(issue => [issue.title, issue]));
-
-    const sourceIssues = await fetchAllIssues(SOURCE_REPO);
 
     for (const issue of sourceIssues) {
       if (issue.pull_request) continue; // Skip pull requests
 
-      // 🚨 **Check if issue belongs to an excluded milestone**
       if (issue.milestone && MILESTONES_TO_EXCLUDE.includes(issue.milestone.title)) {
-        console.log(`🚫 Skipping issue "${issue.title}" (Milestone: ${issue.milestone.title})`);
+        console.log(`🚫 Skipping issue: ${issue.title} (Excluded milestone)`);
         continue;
       }
 
-      const payload = {
-        title: issue.title,
-        body: issue.body || '',
-        labels: issue.labels.map(l => l.name),
-      };
-
-      if (issue.milestone && milestoneMap[issue.milestone.number]) {
-        payload.milestone = milestoneMap[issue.milestone.number];
+      if (issue.milestone && MILESTONES_TO_INCLUDE[0] !== '*' && !MILESTONES_TO_INCLUDE.includes(issue.milestone.title)) {
+        console.log(`🚫 Skipping issue: ${issue.title} (Milestone not in include list)`);
+        continue;
       }
 
       if (existingIssueMap.has(issue.title)) {
@@ -139,6 +147,16 @@ async function copyIssues(milestoneMap) {
           console.log(`🔄 Skipping existing issue: ${issue.title} (Milestone is correct)`);
         }
         continue;
+      }
+
+      const payload = {
+        title: issue.title,
+        body: issue.body || '',
+        labels: issue.labels.map(l => l.name),
+      };
+
+      if (issue.milestone && milestoneMap[issue.milestone.number]) {
+        payload.milestone = milestoneMap[issue.milestone.number];
       }
 
       const { data: newIssue } = await axios.post(`${GITHUB_API}/${DEST_REPO}/issues`, payload, HEADERS);
