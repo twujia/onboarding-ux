@@ -33,7 +33,7 @@ const MILESTONES_TO_EXCLUDE = [
 ];
 
 // 🚀 **Milestones to include** (Set to ['*'] to include all except exclusions)
-const MILESTONES_TO_INCLUDE = ['0. Company policies', '0. Working in an agile team']; // Example: ['Milestone A', 'Milestone B']
+const MILESTONES_TO_INCLUDE = ['*']; // Example: ['Milestone A', 'Milestone B']
 
 async function fetchAllIssues(repo) {
   let issues = [];
