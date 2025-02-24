@@ -1,0 +1,8 @@
+If you conducted a user testing session, how would you document the results?\
+I would record the results in a collaborative word processor, such as Google Docs. This will allow me to share the user’s feedback with the team. As for the actual method of documentation, I would record the interview (with their consent) and also try to type their answers (or use some kind of transcript generator on the audio).
+
+How can a well-structured UX document help prevent miscommunication between teams?\
+A well-structured UX document can act as a source of truth in regards to how the product/app should be designed. Miscommunication between teams can arise from misunderstanding the design requirements, feasibility, or other factors. As such, an organised UX document can help to resolve these issues before it can even take shape if team members consult the document before raising questions or issues.
+
+What challenges might arise when writing UX documentation, and how can you avoid them?\
+An issue when writing UX documentation could be that it contains specific or granular details that only the design team can understand. As such, it can cause confusion when other departments are looking at the documentation and they are not sure what is exactly being described/explained regarding the design process or user feedback. A solution to this could be to introduce a simple overview (or summary) of the documentation which slowly gets more detailed as the person continues reading. It would allow them to quickly acquaint themselves with the overarching goals of the document whilst reading further if they need the specifics.
