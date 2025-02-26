@@ -1,0 +1,8 @@
+How can UX ensure a smooth handoff between design and development?\
+A smooth handoff can be achieved by ensuring clear communication and early involvement of developers in the design process. This reduces the possibility of any misunderstandings in addition to the development team knowing what to expect when the handoff occurs. Design systems and relevant documentation should also be provided to them which can assist in their tasks.
+
+What challenges might arise when design, dev, and product teams have conflicting priorities?\
+If several teams have conflicting priorities, it may lead to rising tensions between everyone. Everyone has their own beliefs and reasoning behind why their priorities are the correct ones, and could try to fight for everybody else to adopt their perspective. This highlights the importance of transparent communication and having aligned goals and targets, which can help everyone involved to be on the same page.
+
+If a developer modifies a UX design due to technical limitations, how should a UX designer respond?\
+If a developer has to modify a design due to technical limitations, it would be best to open up communication between the developer and designer. Firstly, the developer should clarify which technical limitations they are experiencing and how it impacts the proposed design. Then, both parties will need to work together to figure out alternative solutions that can still get the design to work but within technological constraints. Afterwards, the designer should consolidate this experience and use it to inform subsequent designs whilst keeping those constraints in mind.
