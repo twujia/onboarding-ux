@@ -1,0 +1,8 @@
+If research contradicts a designer’s personal preference, what should happen?\
+I believe that research should take precedence over a designer’s personal preferences, as the main goal of a designer should be to create and improve the user experience. If an updated design leads to more users struggling and thus feeling frustrated with the app, it defeats the primary purpose of UI/UX. Thus, I think that the designer should learn and explore the research that contradicts their preferences which can help to inform their subsequent designs.
+
+How can UX designers ensure that their work aligns with real user needs?\
+To ensure alignment, there should be regular user research conducted which helps to keep user needs up-to-date and accurately reflects the state of the product. Additionally, these insights should be used to drive design decisions while avoiding making assumptions about what users requirements should be. Overall, there needs to be regular testing and research at every stage of the design process because this ensures that we always keep the needs of the user into consideration.
+
+What risks come with relying on assumptions rather than research when designing an interface?
+Solely relying on assumptions when designing could lead to various mistakes. For example, adopting a new visual rebrand using colour schemes and fonts could alienate neurodivergent users if it causes them to struggle with the added cognitive load or overstimulation (assuming that there are no personalisation options in the app). If usability is impacted negatively, it contributes towards higher drop-off rates which then causes the rebrand to be a waste of time and effort.
