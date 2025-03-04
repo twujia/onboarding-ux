@@ -4,5 +4,7 @@ If a new feature ends up being difficult to use despite looking good, the featur
 What specific challenges might neurodivergent users face when using productivity apps?\
 Neurodivergent users have various cognitive challenges when using productivity apps, such as being prone to distractions, executive dysfunction, and sensory overload. These are all issues that Focus Bear aims to address in terms of its design both feature-wise and aesthetics-wise. 
 
+**Updated answer:** Specifically, a cluttered or poorly-structured interface can be overwhelming for users as it could hinder their ability to navigate through the app efficiently. Similarly, providing neurodivergent users with too many settings at once can also contribute to decision paralysis where they cannot move on from that state of indecision. Users sensitive to sensory overload may also suffer if the app contains excessive animations and bright colours which could lead to them abandoning the app.
+
 How can Focus Bear's UX differentiate itself from other productivity tools?\
 Focus Bear already differentiates itself from other productivity apps by catering to the needs of neurodivergent users. However, it can still grow to be different from the competition through various needs. I believe that offering more personalisation options (colours, fonts, etc.) will allow users who are prone to overstimulation to tailor the appearance of Focus Bear to suit their needs. 
